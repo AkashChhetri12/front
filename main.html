@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="front.css" />
+    </head>
+    <body class="back">
+
+         <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog" role="document" >
+          <div class="modal-content" >
+            <div class="modal-header" >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Select Animation</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-inline" id="myForm">
+                    <div class="wrap">
+                            <input type="radio" id="rad1" name="rads" value="type">
+                            <label for="rad1">&nbsp;&nbsp;&nbsp;Typewriter</label><br>
+                            <input type="radio" id="rad2" name="rads" value="hit">
+                            <label for="rad2">&nbsp;&nbsp;&nbsp;Hit The Floor</label><br>
+                            <input type="radio" id="rad3" name="rads" value="area">
+                            <label for="rad3">&nbsp;&nbsp;&nbsp;Area</label>
+                        </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+              <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="centered" id="maintext">
+            <h1>NEVER</h1><br>
+            <h1>GIVE</h1><br>
+            <h1>UP</h1><br>
+        </div>
+        <div style="top:80%; left:50%;position:fixed;transform: translate(-50%, +10%);">
+                <button type="button" class="button" data-toggle="modal" data-target="#myModal">CLICK ME</button>
+        </div>
+
+        <script>
+           
+            $('.modal-content').resizable({
+      //alsoResize: ".modal-dialog",
+      minHeight: 300,
+      minWidth: 300
+    });
+    $('.modal-dialog').draggable();
+
+    $('#myModal').on('show.bs.modal', function() {
+      $(this).find('.modal-body').css({
+        'max-height': '100%'
+      });
+    });
+
+    //selected animation
+    var offset=0;
+    $("#save").click(function () {
+        var prev = $("#maintext").attr("class")
+        var change = $('input[name=rads]:checked', '#myForm').val();
+        var newclass="";
+        switch(change){
+            case "type": newclass="typewriter";break;
+            case "hit":newclass="hit-the-floor";break;
+            case "area":newclass="area";break;
+            default: newclass="centered";alert("Please select the valid options");
+        }
+    $("#maintext").removeClass(prev);
+    $("#maintext").addClass(newclass); 
+
+    var body = $(".back").css('backgroundPositionX');
+    if(eval(body.substring(0,2)-5)>0){
+        console.log(body+"****:"+eval(new String(body.substring(0,2)-5))+"%");
+        $(".back").css('backgroundPositionX',eval(new String(body.substring(0,2)-5))+"%");
+    }
+    else{
+        $(".back").css('backgroundPositionX',50+"%");
+    }    
+});
+        </script>
+
+    </body>
+</html>
