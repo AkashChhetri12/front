@@ -1,10 +1,6 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
   .back{
-    background : linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    background-image: url(./Website-Design-Background.png);
     background-repeat: no-repeat;
     background-position-y: 50%;
     background-position-x: 50%;
@@ -157,7 +153,7 @@ background: rgba(248, 248, 248, 0);
   /* Hit the floor */
   .hit-the-floor h1{
     color: #fff;
-    font-size: 10em;
+    font-size: 9em;
     font-weight: bold;
     font-family: Helvetica;
     text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
